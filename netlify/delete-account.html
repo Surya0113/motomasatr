@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Motomastar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+                Motomastar
+            </a>
+            <nav class="nav-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="delete-account.html" class="active">Delete Account</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container fade-in">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h1>Delete Account Data</h1>
+            
+            <div class="danger-zone">
+                <h3>Warning: Permanent Action</h3>
+                <p style="margin-bottom: 0;">Deleting your account will permanently remove all your workshop data, including job cards, customer details, inventory, and analytics. This action cannot be undone.</p>
+            </div>
+
+            <p>If you no longer wish to use Motomastar and want all associated data to be erased from our servers in compliance with data privacy regulations, please submit the request below.</p>
+
+            <form style="margin-top: 30px;" onsubmit="event.preventDefault(); alert('Your deletion request has been submitted. Our team will process it within 7 days.');">
+                <div class="form-group">
+                    <label for="workshopName">Workshop Name</label>
+                    <input type="text" id="workshopName" required placeholder="Enter your registered workshop name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Registered Email Address</label>
+                    <input type="email" id="email" required placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Reason for Deletion (Optional)</label>
+                    <textarea id="reason" rows="4" placeholder="Please let us know why you are leaving..."></textarea>
+                </div>
+
+                <button type="submit" style="background-color: #F44336;">Request Account Deletion</button>
+            </form>
+            
+            <p style="margin-top: 20px; font-size: 14px; text-align: center;">Alternatively, you can email your deletion request directly to <a href="mailto:support@Motomastar.app" style="color: var(--primary);">support@Motomastar.app</a>.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Motomastar. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

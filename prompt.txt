@@ -1,0 +1,53 @@
+Update the job card advance and discount fields on the backend.
+
+Problem:
+The frontend popup currently shows Advance and Discount values, but they do not persist correctly to the job card document. The app expects the backend to accept and save these fields when a job card is updated or completed.
+
+Required backend behavior:
+When the frontend sends a PUT request to update a job card, the API must accept and persist these fields:
+- advancePayment
+- discount
+
+These fields must be stored on the job card record and returned in the response data.
+
+Expected request format:
+PUT /jobcard/:jobCardId
+{
+  "advancePayment": 2000,
+  "discount": 500
+}
+
+Also support the same fields in status update flow if used by frontend:
+PUT /jobcard/:jobCardId/status
+{
+  "status": "completed",
+  "advancePayment": 2000,
+  "discount": 500
+}
+
+Important rules:
+1. advancePayment must be numeric.
+2. discount must be numeric.
+3. These values must be saved in the job card document, not ignored.
+4. On response, the updated job card data must include both fields.
+5. If the existing route validates only status, extend it to also accept advancePayment and discount.
+6. If the job card update route is missing these fields in validation or schema, add them.
+7. Do not break existing status logic or other job card data.
+8. The API must remain backward compatible with existing requests.
+
+Notes:
+The frontend already uses the following payload in creation flow:
+{
+  "estimateAmount": 0.0,
+  "advancePayment": 0.0,
+  "discount": 0.0,
+  "tax": 0.0
+}
+
+So the update endpoint should accept the same keys and update the same document fields.
+
+If the backend is using Mongoose / MongoDB, ensure the schema includes these fields and they are not omitted during update operations.
+
+If the backend is using a controller/service layer, ensure it forwards these fields from request.body to the update operation.
+
+Please update the backend code to accept and persist advancePayment and discount, and make sure the frontend receives them back in the updated job card response.
